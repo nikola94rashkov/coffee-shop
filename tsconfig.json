@@ -14,6 +14,7 @@
 			"@components/*": ["components/*"], // Define the alias for components
 			"@interfaces": ["interfaces"], // Define the alias for types
 			"@pages": ["pages"], // Define the alias for pages
+			"@router": ["router"], // Define the alias for router
 		},
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],

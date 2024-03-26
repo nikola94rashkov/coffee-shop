@@ -48,6 +48,7 @@ module.exports = {
 			'@components': path.resolve(__dirname, 'src/components'),
 			'@interfaces': path.resolve(__dirname, 'src/interfaces'),
 			'@pages': path.resolve(__dirname, 'src/pages'),
+			'@router': path.resolve(__dirname, 'src/router'),
 		},
 	},
 	// Plugins

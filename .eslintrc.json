@@ -50,5 +50,5 @@
 		"import/extensions": ["warn", "never"],
 		"@typescript-eslint/explicit-function-return-type": "off"
 	},
-	"ignorePatterns": ["craco.config.js", "webpack.config.ts"]
+	"ignorePatterns": ["webpack.config.ts"]
 }

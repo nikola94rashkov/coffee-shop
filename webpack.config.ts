@@ -3,13 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	// Where files should be sent once they are bundled
+	entry: './src/index.tsx',
 	output: {
 		path: path.join(__dirname, '/dist'),
 		filename: 'index.bundle.js',
+		publicPath: '/',
 	},
 	// Development server configuration
 	devServer: {
 		port: 3000,
+		historyApiFallback: true,
 	},
 	// Rules for compiling and bundling files
 	module: {

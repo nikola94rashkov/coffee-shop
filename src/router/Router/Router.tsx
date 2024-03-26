@@ -1,7 +1,63 @@
 import React from 'react'
 
-import { RouterProvider } from 'react-router-dom'
+import {
+	Cart,
+	Dashboard,
+	Favorite,
+	Home,
+	Login,
+	NotFound,
+	Product,
+	Products,
+	Settings,
+} from '@pages'
+import { PrivateRoutes } from '@router'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import { router } from './data'
+export const Router = () => {
+	const router = createBrowserRouter([
+		{
+			path: '/',
+			element: <Home />,
+		},
+		{
+			path: '/login',
+			element: <Login />,
+		},
+		{
+			path: '/cart',
+			element: <Cart />,
+		},
+		{
+			path: '/product/:productId',
+			element: <Product />,
+		},
+		{
+			path: '/products',
+			element: <Products />,
+		},
+		{
+			element: <PrivateRoutes />,
+			children: [
+				{
+					path: '/dashboard',
+					element: <Dashboard />,
+				},
+				{
+					path: '/settings',
+					element: <Settings />,
+				},
+				{
+					path: '/favorite',
+					element: <Favorite />,
+				},
+			],
+		},
+		{
+			path: '*',
+			element: <NotFound />,
+		},
+	])
 
-export const Router = () => <RouterProvider router={router} />
+	return <RouterProvider router={router} />
+}

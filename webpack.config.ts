@@ -46,6 +46,8 @@ module.exports = {
 		alias: {
 			// Add an alias for your components folder
 			'@components': path.resolve(__dirname, 'src/components'),
+			'@interfaces': path.resolve(__dirname, 'src/interfaces'),
+			'@pages': path.resolve(__dirname, 'src/pages'),
 		},
 	},
 	// Plugins

@@ -1,4 +1,4 @@
-import { type Tboolean, type TChild, type TNull } from '../../types'
+import { type Tboolean, type TChild, type TNull } from '@interfaces'
 
 export type ShowProps = {
 	children: TChild

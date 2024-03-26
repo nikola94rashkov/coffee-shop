@@ -12,6 +12,8 @@
 		"baseUrl": "./src", // Set the base URL to your src folder
 		"paths": {
 			"@components/*": ["components/*"], // Define the alias for components
+			"@interfaces": ["interfaces"], // Define the alias for types
+			"@pages": ["pages"], // Define the alias for pages
 		},
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],

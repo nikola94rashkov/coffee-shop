@@ -1,4 +1,4 @@
-import React, { Children, type FC } from 'react'
+import { Children, type FC, isValidElement } from 'react'
 
 import {
 	type ShowProps,
@@ -12,12 +12,12 @@ export const Show: FC<ShowProps> = ({ children }) => {
 	let otherwise: TShow = null
 
 	Children.forEach(children, (child) => {
-		if (React.isValidElement(child)) {
+		if (isValidElement(child)) {
 			const { isTrue } = child.props
 
 			if (isTrue === undefined) {
 				otherwise = child
-			} else if (!when && child.props.isTrue === true) {
+			} else if (!when && isTrue) {
 				when = child
 			}
 		}

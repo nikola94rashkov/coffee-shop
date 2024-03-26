@@ -1,15 +1,30 @@
-import path from 'path'
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import { type Configuration } from 'webpack'
-
-const config: Configuration = {
-	mode:
-		(process.env.NODE_ENV as 'production' | 'development' | undefined) ??
-		'development',
-	entry: './src/index.tsx',
+module.exports = {
+	// Where files should be sent once they are bundled
+	output: {
+		path: path.join(__dirname, '/dist'),
+		filename: 'index.bundle.js',
+	},
+	// Development server configuration
+	devServer: {
+		port: 3000,
+	},
+	// Rules for compiling and bundling files
 	module: {
 		rules: [
+			{
+				test: /\.(js|jsx|ts|tsx)$/,
+				exclude: /nodeModules/,
+				use: {
+					loader: 'babel-loader',
+				},
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
 			{
 				test: /.tsx?$/,
 				use: 'ts-loader',
@@ -26,18 +41,17 @@ const config: Configuration = {
 			},
 		],
 	},
-	plugins: [
-		new CopyWebpackPlugin({
-			patterns: [{ from: 'public' }],
-		}),
-	],
-	output: {
-		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist'),
-	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			// Add an alias for your components folder
+			'@components': path.resolve(__dirname, 'src/components'),
+		},
 	},
+	// Plugins
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './public/index.html',
+		}),
+	],
 }
-
-export default config

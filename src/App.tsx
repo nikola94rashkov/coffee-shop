@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Show, ShowElse, ShowWhen } from './components/utils'
+import { Show, ShowElse, ShowWhen } from '@components/utils'
 
 export const App = () => {
 	return (

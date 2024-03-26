@@ -21,6 +21,7 @@
 		"react-router-dom": "^6.22.3",
 		"react-scripts": "^5.0.1",
 		"rxjs": "^7.8.1",
+		"serve": "^14.2.1",
 		"ts-loader": "^9.5.1",
 		"typescript": "*"
 	},
@@ -73,7 +74,8 @@
 		"lint:fix-imports": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
 		"test": "jest --testPathPattern=src/.*\\.test\\.tsx$",
 		"test:coverage": "jest --coverage --testPathPattern=src",
-		"test:watch": "jest --watch"
+		"test:watch": "jest --watch",
+		"serve": "npx serve -s dist"
 	},
 	"config": {
 		"commitizen": {
